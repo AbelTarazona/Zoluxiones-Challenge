@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@color/gray20"
+        android:layout_marginBottom="5dp"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        tools:text="Usuario" />
+
+    <EditText
+        android:id="@+id/etValue"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        tools:hint="Usuario"
+        android:textSize="13sp"
+        android:lines="1"
+        tools:inputType="textPassword"
+        android:fontFamily="@font/montserrat"
+        android:textColorHint="@color/gray10"
+        android:paddingHorizontal="15dp"
+        android:background="@drawable/gray_background_rounded" />
+
+</LinearLayout>

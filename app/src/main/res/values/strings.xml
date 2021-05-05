@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Challenge</string>
+    <string name="register_login">¡Diversión asegurada! Las mejores películas del momento</string>
+    <string name="title_app">CineMax</string>
 </resources>
