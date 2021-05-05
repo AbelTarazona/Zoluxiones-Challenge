@@ -1,20 +1,28 @@
+import dependencies.UiDep
+
 plugins {
-    id ("com.android.application")
-    id ("kotlin-android")
+    id(Config.Plugins.android)
+    id(Config.Plugins.kotlinAndroid)
+    id(Config.Plugins.navigationSafArgs)
+    id(Config.Plugins.kotlinKapt)
+    id(Config.Plugins.dagger)
 }
 
 android {
-    compileSdkVersion (30)
-    buildToolsVersion ("30.0.2")
+    compileSdkVersion(Config.Android.androidCompileSdkVersion)
+    buildToolsVersion(Config.Android.androidBuildToolsVersion)
 
     defaultConfig {
-        applicationId = "com.abeltarazona.challenge"
-        minSdkVersion (21)
-        targetSdkVersion (30)
-        versionCode = 1
-        versionName = "1.0"
+        applicationId(Environments.Release.appId)
+        minSdkVersion(Config.Android.androidMinSdkVersion)
+        targetSdkVersion(Config.Android.androidTargetSdkVersion)
+        versionCode(Environments.Release.appVersionCode)
+        versionName(Environments.Release.appVersionName)
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner(Config.testRunner)
+
+        // Configs
+        buildConfigField("String", "BASE_URL", "\"" + Environments.Release.baseUrl + "\"")
     }
 
     buildTypes {
@@ -35,16 +43,52 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
 }
 
 dependencies {
 
-    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.4.30")
-    implementation ("androidx.core:core-ktx:1.3.2")
-    implementation ("androidx.appcompat:appcompat:1.2.0")
-    implementation ("com.google.android.material:material:1.3.0")
-    implementation ("androidx.constraintlayout:constraintlayout:2.0.4")
-    testImplementation ("junit:junit:4.+")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.2")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.3.0")
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+
+    // Modules
+/*    implementation(project(Modules.domain))
+    implementation(project(Modules.data))
+    implementation(project(Modules.remote))
+    implementation(project(Modules.cache))
+    implementation(project(Modules.presentation))*/
+
+    // Core Dependencies
+    implementation(UiDep.kotlin)
+    implementation(UiDep.coreKtx)
+    implementation(UiDep.appCompat)
+    implementation(UiDep.material)
+    implementation(UiDep.constraint)
+    implementation(UiDep.navigationFragmentKtx)
+    implementation(UiDep.navigationUiKtx)
+    implementation(UiDep.activityKtx)
+    // LifeCycle
+    UiDep.LifeCycle.forEach {
+        implementation(it)
+    }
+    // Dagger-Hilt
+    UiDep.DaggerHilt.forEach {
+        implementation(it)
+    }
+    UiDep.DaggerHiltKapt.forEach {
+        kapt(it)
+    }
+    // Coroutines
+    UiDep.Coroutines.forEach {
+        implementation(it)
+    }
+    // Glide
+    implementation(UiDep.glide)
+    kapt(UiDep.glideKapt)
+    // Timber
+    implementation(UiDep.timber)
+    // Lottie animation
+    implementation(UiDep.lottie)
 }
