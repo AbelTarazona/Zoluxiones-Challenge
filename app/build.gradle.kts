@@ -56,11 +56,10 @@ dependencies {
     // Modules
     implementation(project(Modules.remote))
     implementation(project(Modules.data))
-/*    implementation(project(Modules.domain))
-
-
-    implementation(project(Modules.cache))
-    implementation(project(Modules.presentation))*/
+    implementation(project(Modules.domain))
+    implementation(project(Modules.presentation))
+/*        implementation(project(Modules.cache))
+    */
 
     // Core Dependencies
     implementation(UiDep.kotlin)
@@ -88,6 +87,8 @@ dependencies {
     }
     // Glide
     implementation(UiDep.glide)
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:${rootProject.extra["kotlin_version"]}")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     kapt(UiDep.glideKapt)
     // Timber
     implementation(UiDep.timber)
