@@ -11,7 +11,7 @@ java {
 
 dependencies {
     //Modules
-    //implementation(project(Modules.domain))
+    implementation(project(Modules.domain))
     // Kotlin and Coroutines
     implementation(DataDep.kotlin)
     implementation(DataDep.coroutineCore)

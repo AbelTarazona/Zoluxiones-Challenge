@@ -1,9 +1,9 @@
-package com.abeltarazona.data.models
+package com.abeltarazona.domain.models
 
 /**
  * Created by AbelTarazona on 5/05/2021
  */
-data class MovieEntity(
+data class Movie(
     val id: Int,
     val adult: Boolean,
     val headerImage: String,
