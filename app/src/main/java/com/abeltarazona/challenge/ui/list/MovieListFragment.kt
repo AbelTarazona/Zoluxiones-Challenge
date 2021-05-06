@@ -2,7 +2,10 @@ package com.abeltarazona.challenge.ui.list
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import com.abeltarazona.challenge.R
 import com.abeltarazona.challenge.base.BaseFragment
 import com.abeltarazona.challenge.databinding.FragmentMovieListBinding
@@ -30,8 +33,14 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding, BaseViewModel>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        configSharedElementsAnimation()
         observe(viewModel.getMovies(), ::onViewStateChange)
         initRecyclerView()
+    }
+
+    private fun configSharedElementsAnimation() {
+        postponeEnterTransition()
+        view?.doOnPreDraw { startPostponedEnterTransition() }
     }
 
     private fun initRecyclerView() {
@@ -39,13 +48,17 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding, BaseViewModel>(
             adapter = movieAdapter
         }
 
-/*        characterAdapter.setItemClickListener { character ->
-            findNavController().navigate(
-                CharacterListFragmentDirections.actionCharacterListFragmentToCharacterDetailFragment(
-                    character.id.toLong()
-                )
+        movieAdapter.setItemClickListener { movie, image ->
+
+            val extras = FragmentNavigatorExtras(
+                image to movie.id.toString()
             )
-        }*/
+
+            findNavController().navigate(
+                MovieListFragmentDirections.actionMovieListFragmentToMovieDetailFragment(movie),
+                extras
+            )
+        }
     }
 
     private fun onViewStateChange(event: MovieUIModel) {

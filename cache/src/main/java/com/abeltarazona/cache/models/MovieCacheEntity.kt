@@ -21,5 +21,7 @@ data class MovieCacheEntity(
     val date: String,
     val img: String,
     @ColumnInfo(name = "is_bookmarked")
-    val isBookMarked: Boolean
+    val isBookMarked: Boolean,
+    val overview: String,
+    val voteAverage: Double
 )

@@ -18,5 +18,9 @@ data class MovieModel(
     val date: String,
     @field:Json(name = "poster_path")
     val img: String,
-    val isBookMarked: Boolean = false
-)
+    val isBookMarked: Boolean = false,
+    val overview: String,
+    @field:Json(name = "vote_average")
+    val voteAverage: Double,
+
+    )

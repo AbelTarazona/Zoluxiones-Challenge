@@ -17,7 +17,9 @@ class MovieCacheMapper @Inject constructor() : CacheMapper<MovieCacheEntity, Mov
             title = type.title,
             date = type.date,
             img = type.img,
-            isBookMarked = type.isBookMarked
+            isBookMarked = type.isBookMarked,
+            overview = type.overview,
+            voteAverage = type.voteAverage
         )
     }
 
@@ -30,7 +32,9 @@ class MovieCacheMapper @Inject constructor() : CacheMapper<MovieCacheEntity, Mov
             title = type.title,
             date = type.date,
             img = type.img,
-            isBookMarked = type.isBookMarked
+            isBookMarked = type.isBookMarked,
+            overview = type.overview,
+            voteAverage = type.voteAverage
         )
     }
 }

@@ -17,7 +17,9 @@ class MovieMapper @Inject constructor() : Mapper<MovieEntity, Movie> {
             title = type.title,
             date = type.date,
             img = type.img,
-            isBookMarked = type.isBookMarked
+            isBookMarked = type.isBookMarked,
+            overview = type.overview,
+            voteAverage = type.voteAverage
         )
     }
 
@@ -30,7 +32,9 @@ class MovieMapper @Inject constructor() : Mapper<MovieEntity, Movie> {
             title = type.title,
             date = type.date,
             img = type.img,
-            isBookMarked = type.isBookMarked
+            isBookMarked = type.isBookMarked,
+            overview = type.overview,
+            voteAverage = type.voteAverage
         )
     }
 }

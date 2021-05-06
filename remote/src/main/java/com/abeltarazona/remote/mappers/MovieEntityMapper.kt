@@ -17,7 +17,9 @@ class MovieEntityMapper @Inject constructor() : EntityMapper<MovieModel, MovieEn
             title = model.title,
             date = model.date,
             img = model.img,
-            isBookMarked = model.isBookMarked
+            isBookMarked = model.isBookMarked,
+            overview = model.overview,
+            voteAverage = model.voteAverage
         )
     }
 }

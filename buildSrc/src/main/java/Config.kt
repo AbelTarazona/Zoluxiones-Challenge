@@ -29,6 +29,7 @@ object Config {
         const val dagger = "dagger.hilt.android.plugin"
         const val androidLibrary = "com.android.library"
         const val javaLibrary = "java-library"
+        const val parcelize = "kotlin-parcelize"
     }
 
     const val testRunner = "androidx.test.runner.AndroidJUnitRunner"

@@ -3,6 +3,7 @@ import dependencies.DomainDep
 plugins {
     id(Config.Plugins.kotlin)
     id(Config.Plugins.javaLibrary)
+    id(Config.Plugins.parcelize)
 }
 
 java {
