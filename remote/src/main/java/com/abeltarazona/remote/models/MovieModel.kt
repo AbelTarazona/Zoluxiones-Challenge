@@ -19,6 +19,4 @@ data class MovieModel(
     @field:Json(name = "poster_path")
     val img: String,
     val isBookMarked: Boolean = false
-) {
-    //fun getDateYear(): String = date.split("-")[0]
-}
+)

@@ -12,4 +12,8 @@ data class Movie(
     val date: String,
     val img: String,
     val isBookMarked: Boolean
-)
+) {
+    fun getDateYear(): String = date.split("-")[0]
+
+    fun getImagePoster(): String = "https://image.tmdb.org/t/p/w200$img"
+}

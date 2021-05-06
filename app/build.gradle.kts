@@ -58,8 +58,7 @@ dependencies {
     implementation(project(Modules.data))
     implementation(project(Modules.domain))
     implementation(project(Modules.presentation))
-/*        implementation(project(Modules.cache))
-    */
+    implementation(project(Modules.cache))
 
     // Core Dependencies
     implementation(UiDep.kotlin)
